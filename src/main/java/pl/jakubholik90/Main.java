@@ -16,6 +16,7 @@ public class Main {
         List<String> chatHistory = new LinkedList<>();
 
         System.out.println(welcomeMessage);
+        String previousResponseId = null;
         while (runApp) {
             System.out.println(line);
             System.out.println(menu);
@@ -23,17 +24,10 @@ public class Main {
             String input = scaner.nextLine();
 
             if (!input.equals("quit")) {
-                chatHistory.add(input);
-                String chatHistoryString = chatHistory.toString();
-                //System.out.println("chatHistoryString:" + chatHistoryString);
                 System.out.println(systemMessage);
                 System.out.println(line);
-                List<String> output = APIConnector.sendAndGetResponse(chatHistoryString);
-                if(output.size()>0) {
-                    output.stream()
-                            .forEach(System.out::println);
-                }
-                chatHistory.add(output.toString());
+                String newResponseId = APIConnector.sendAndGetResponse(input,previousResponseId);
+                previousResponseId = newResponseId;
             } else {
                 System.out.println(line);
                 System.out.println(goodbyeMessage);
