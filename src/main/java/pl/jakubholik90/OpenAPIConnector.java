@@ -7,10 +7,7 @@ import com.openai.models.responses.Response;
 import com.openai.models.responses.ResponseCreateParams;
 import com.openai.models.responses.ResponseOutputText;
 
-import java.util.List;
-import java.util.Optional;
-
-public class APIConnector {
+public class OpenAPIConnector {
 
     public static String sendAndGetResponse(String input, String previousResponseId) {
 

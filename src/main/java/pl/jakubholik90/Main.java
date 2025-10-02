@@ -26,7 +26,7 @@ public class Main {
             if (!input.equals("quit")) {
                 System.out.println(systemMessage);
                 System.out.println(line);
-                String newResponseId = APIConnector.sendAndGetResponse(input,previousResponseId);
+                String newResponseId = OpenAPIConnector.sendAndGetResponse(input,previousResponseId);
                 previousResponseId = newResponseId;
             } else {
                 System.out.println(line);
