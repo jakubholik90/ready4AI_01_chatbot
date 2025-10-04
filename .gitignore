@@ -1,4 +1,7 @@
 PrivateData.java
+test.java
+application.properties
+
 
 target/
 !.mvn/wrapper/maven-wrapper.jar
